@@ -17,11 +17,12 @@
 # Samples
 
 add_executable(
-  hello
-  hello.cpp
+  hello_mqtt
+  hello_mqtt.cpp
 )
-target_include_directories(hello PRIVATE "../../src" "../../src/linux")
-target_link_libraries(hello MQTTPacketClient)
+target_include_directories(hello_mqtt PRIVATE "../../src" "../../src/linux" "../../../mbedtls-development/include")
+target_link_libraries(hello_mqtt MQTTPacketClient)
+target_link_libraries(hello_mqtt mbedtls mbedcrypto mbedx509)
 
 add_executable(
   stdoutsub
